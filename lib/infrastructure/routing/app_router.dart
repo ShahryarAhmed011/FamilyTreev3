@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
@@ -14,6 +16,7 @@ class AppRouter {
   AppRouter({required this.routeFactory});
 
   GoRouter generateRoutes() {
+    log("GoRouterCalled");
     final GoRouter goRouter;
     if (_goRouter == null) {
       goRouter = GoRouter(

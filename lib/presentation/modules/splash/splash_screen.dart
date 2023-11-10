@@ -1,13 +1,32 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+import 'package:family_tree/presentation/modules/splash/bloc/splash_bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../base/screen/stateful_screen.dart';
+
+class SplashScreen extends StatefulScreen<SplashBloc> {
+  const SplashScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return SafeArea(
+  State<StatefulWidget> createState() {
+    return _SplashScreenState();
+  }
+
+}
+
+class _SplashScreenState extends ScreenState<SplashBloc>
+    with TickerProviderStateMixin {
+
+  @override
+  Widget buildScreen(BuildContext context) {
+    log("Splash Screen Called");
+    context.read<SplashBloc>().add(SplashScreenInit());
+    return const SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
+          body:SizedBox.shrink()
+        /*SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.fromLTRB(0, 139, 0, 0),
             width: double.infinity,
@@ -147,11 +166,15 @@ class SplashScreen extends StatelessWidget {
               ],
             ),
           ),
-        ),
+        ),*/
       ),
     );
   }
+
 }
+
+
+
 
 const double _kCurveHeight = 55;
 
