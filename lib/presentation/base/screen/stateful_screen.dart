@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -53,10 +55,12 @@ abstract class ScreenState<B extends BaseBloc> extends State<StatefulScreen<B>>
   }
 
   void _replaceRoute(BuildContext context, ReplaceState state) {
+    log("Rout _replaceRoute ${state.path}");
     _replace(context, state);
   }
 
   void _replace(BuildContext context, ReplaceState state) {
+    log("Rout _replace ${state.path}");
     context.go(
         Uri(path: state.path, queryParameters: state.queryParams, ).toString(),
         extra: state.extra);
@@ -64,6 +68,7 @@ abstract class ScreenState<B extends BaseBloc> extends State<StatefulScreen<B>>
 
   Future<dynamic> _navigate<T extends Object?>(
       BuildContext context, NavigateState state) async {
+    log("Rout _navigate ${state.path}");
     return context.push(
         Uri(path: state.path, queryParameters: state.queryParams).toString(),
         extra: state.extra);
