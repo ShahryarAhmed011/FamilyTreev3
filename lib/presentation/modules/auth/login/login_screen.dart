@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../base/screen/stateful_screen.dart';
-import '../../../widgets/country_number_textfield.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_textfield.dart';
 import 'bloc/login_bloc.dart';
@@ -29,7 +28,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomPaint(
-                      painter: ShapesPainter(),
+                      painter: ShapesPainterUpper(),
                       child: Container(
                         height: 450,
                       ),
@@ -137,7 +136,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 CustomPaint(
-                  painter: ShapesPainterO(),
+                  painter: ShapesPainterBottom(),
                   child: const SizedBox(
                     height: 150,
                     width: 600,
@@ -154,7 +153,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
 
 const double _kCurveHeight = 45;
 
-class ShapesPainter extends CustomPainter {
+class ShapesPainterUpper extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final p = Path();
@@ -175,7 +174,7 @@ class ShapesPainter extends CustomPainter {
 
 const double _kCurveHeighto = 100;
 
-class ShapesPainterO extends CustomPainter {
+class ShapesPainterBottom extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final p = Path();
