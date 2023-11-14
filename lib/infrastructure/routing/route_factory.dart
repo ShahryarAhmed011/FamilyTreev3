@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:family_tree/infrastructure/routing/providers/home_route_provider.dart';
 import 'package:family_tree/infrastructure/routing/providers/login_route_provider.dart';
+import 'package:family_tree/infrastructure/routing/providers/sign_up_route_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
@@ -15,12 +16,14 @@ class AppRouteFactory {
   final TransitionFactory transitionFactory;
   final HomeRouteProvider homeRouteProvider;
   final LogInRouteProvider loginRouteProvider;
+  final SignUpRouteProvider signupRouteProvider;
 
-  const AppRouteFactory(this.loginRouteProvider, {
+  const AppRouteFactory(
+    this.loginRouteProvider,
+    this.signupRouteProvider, {
     required this.splashRouteProvider,
     required this.transitionFactory,
     required this.homeRouteProvider,
-
   });
 
   Widget create(BuildContext context, GoRouterState state) {
@@ -30,22 +33,23 @@ class AppRouteFactory {
     if (path == Routes.splash) {
       log("Path is  Splash");
       provider = splashRouteProvider;
-    }else if (path == Routes.home) {
+    } else if (path == Routes.home) {
       log("Path is Home ");
       provider = homeRouteProvider;
-    }else if (path == Routes.login) {
+    } else if (path == Routes.login) {
       log("Path is Login ");
       provider = loginRouteProvider;
-    }else {
+    } else if (path == Routes.signup) {
+      log("Path is SignUp ");
+      provider = signupRouteProvider;
+    } else {
       log("Invalid Rout");
       throw "invalid route, please prepare NOT FOUND page for this state";
     }
     return provider.buildRoute(context, state);
   }
 
-
   Page createPage(BuildContext context, GoRouterState state) {
     return transitionFactory.create(create(context, state), state);
   }
-
 }

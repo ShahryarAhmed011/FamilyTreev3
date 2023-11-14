@@ -32,6 +32,9 @@ class AppRouter {
           GoRoute(
               path: Routes.login,
               builder: (context, state) => routeFactory.create(context, state)),
+          GoRoute(
+              path: Routes.signup,
+              builder: (context, state) => routeFactory.create(context, state)),
         ],
       );
       _goRouter = goRouter;
