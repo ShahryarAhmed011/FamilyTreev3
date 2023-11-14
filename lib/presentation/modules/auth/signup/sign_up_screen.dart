@@ -1,8 +1,7 @@
 import 'package:family_tree/presentation/modules/auth/signup/bloc/sign_up_bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../base/screen/stateful_screen.dart';
+import '../../../widgets/country_number_textfield.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_textfield.dart';
 
@@ -41,7 +40,7 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                   child: Container(
                     padding: const EdgeInsets.only(top: 220),
                     child: Image.network(
-                      'assets/images/png/treeWhite.png',
+                      'assets/images/png/profile-outline.png',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -54,22 +53,38 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Login',
+                    'Sign up',
                     style: TextStyle(
                         fontSize: 24,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 35,
+                    height: 30,
                   ),
                   CustomTextField(
-                    hintText: 'Enter your email',
+                    hintText: 'Enter your Name',
+                    controller: TextEditingController(),
+                    suffixIcon: Icons.person,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextField(
+                    hintText: 'Enter your Family Name',
+                    controller: TextEditingController(),
+                    suffixIcon: Icons.person,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextField(
+                    hintText: 'Enter your Email',
                     controller: TextEditingController(),
                     suffixIcon: Icons.email_outlined,
                   ),
                   const SizedBox(
-                    height: 35,
+                    height: 20,
                   ),
                   CustomTextField(
                     hintText: 'Enter your Password',
@@ -77,29 +92,15 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                     suffixIcon: Icons.lock_outline,
                   ),
                   const SizedBox(
-                    height: 12,
+                    height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Checkbox(value: false, onChanged: (value) {}),
-                          const Text('Remember me',style: TextStyle(fontSize: 12),),
-                        ],
-                      ),
-                      const Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Color(0xFF20396F),fontSize: 12),
-                      ),
-                    ],
-                  ),
+                  const CountryCodeTextField(),
                   const SizedBox(height: 35),
                   Center(
                     child: SizedBox(
                       width: 335,
                       height: 50,
-                      child: LoginButton(
+                      child: CustomButton(
                         onPressed: () {
                           // Your code here
                         },
@@ -107,39 +108,31 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                     ),
                   ),
                   const SizedBox(height: 80),
-                  Center(
-                    child: RichText(
-                      text: const TextSpan(
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          height: 1.5,
-                          color: Colors.black,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: 'Don’t have an account?',
-                          ),
-                          TextSpan(
-                            text: ' ',
-                          ),
-                          TextSpan(
-                            text: 'Signup',
-                            style: TextStyle(
-                              color: Color(0xFF20396F),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                const Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Already have an account?',
+                        style: TextStyle(fontFamily: 'Poppins'),
+                      ),
+                      InkWell(
+                        child: Text(
+                          '  Login',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 CustomPaint(
                   painter: ShapesPainterO(),
                   child: const SizedBox(

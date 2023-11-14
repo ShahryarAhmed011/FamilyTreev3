@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../base/screen/stateful_screen.dart';
+import '../../../widgets/country_number_textfield.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_textfield.dart';
 import 'bloc/login_bloc.dart';
@@ -54,20 +55,21 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                   const Text(
                     'Login',
                     style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 16,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 35,
+                    height: 30,
                   ),
+
                   CustomTextField(
-                    hintText: 'Enter your email',
+                    hintText: 'Enter your Email',
                     controller: TextEditingController(),
                     suffixIcon: Icons.email_outlined,
                   ),
                   const SizedBox(
-                    height: 35,
+                    height: 20,
                   ),
                   CustomTextField(
                     hintText: 'Enter your Password',
@@ -75,7 +77,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                     suffixIcon: Icons.lock_outline,
                   ),
                   const SizedBox(
-                    height: 12,
+                    height: 5,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,21 +85,25 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                       Row(
                         children: [
                           Checkbox(value: false, onChanged: (value) {}),
-                          const Text('Remember me',style: TextStyle(fontSize: 12),),
+                          const Text(
+                            'Remember me',
+                            style: TextStyle(fontSize: 12),
+                          ),
                         ],
                       ),
                       const Text(
                         'Forgot Password?',
-                        style: TextStyle(color: Color(0xFF20396F),fontSize: 12),
+                        style:
+                            TextStyle(color: Color(0xFF20396F), fontSize: 12),
                       ),
                     ],
                   ),
                   const SizedBox(height: 35),
                   Center(
                     child: SizedBox(
-                      width: 335,
+                      width: 450,
                       height: 50,
-                      child: LoginButton(
+                      child: CustomButton(
                         onPressed: () {
                           // Your code here
                         },
@@ -105,31 +111,23 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                     ),
                   ),
                   const SizedBox(height: 80),
-                  Center(
-                    child: RichText(
-                      text: const TextSpan(
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          height: 1.5,
-                          color: Colors.black,
+                  const Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Don’t have an account?',
+                          style: TextStyle(fontFamily: 'Poppins'),
                         ),
-                        children: [
-                          TextSpan(
-                            text: 'Don’t have an account?',
-                          ),
-                          TextSpan(
-                            text: ' ',
-                          ),
-                          TextSpan(
-                            text: 'Signup',
+                        InkWell(
+                          child: Text(
+                            '  Signup',
                             style: TextStyle(
                               color: Color(0xFF20396F),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -195,4 +193,3 @@ class ShapesPainterO extends CustomPainter {
     return true;
   }
 }
-
