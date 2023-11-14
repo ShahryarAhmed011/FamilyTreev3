@@ -1,6 +1,6 @@
 import 'dart:developer';
-
 import 'package:family_tree/infrastructure/routing/providers/home_route_provider.dart';
+import 'package:family_tree/infrastructure/routing/providers/login_route_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
@@ -14,8 +14,9 @@ class AppRouteFactory {
   final SplashRouteProvider splashRouteProvider;
   final TransitionFactory transitionFactory;
   final HomeRouteProvider homeRouteProvider;
+  final LogInRouteProvider loginRouteProvider;
 
-  const AppRouteFactory({
+  const AppRouteFactory(this.loginRouteProvider, {
     required this.splashRouteProvider,
     required this.transitionFactory,
     required this.homeRouteProvider,
@@ -32,6 +33,9 @@ class AppRouteFactory {
     }else if (path == Routes.home) {
       log("Path is Home ");
       provider = homeRouteProvider;
+    }else if (path == Routes.login) {
+      log("Path is Login ");
+      provider = loginRouteProvider;
     }else {
       log("Invalid Rout");
       throw "invalid route, please prepare NOT FOUND page for this state";
