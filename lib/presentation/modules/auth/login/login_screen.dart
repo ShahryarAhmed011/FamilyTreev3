@@ -26,25 +26,25 @@ class _LogInScreenState extends ScreenState<LogInBloc>
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
+                  children: [
                     CustomPaint(
                       painter: ShapesPainter(),
                       child: Container(
-                        height: 400,
+                        height: 450,
                       ),
                     ),
                   ],
                 ),
                 Center(
-                  child: Image.network(
-                    'assets/images/svg/treeWhite.svg',
-                    fit: BoxFit.cover,
+                  child: Container(
+                    padding: const EdgeInsets.only(top: 220),
+                    child: Image.network(
+                      'assets/images/png/treeWhite.png',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ],
-            ),
-            const SizedBox(
-              height: 25,
             ),
             Padding(
               padding: const EdgeInsets.all(25.0),
@@ -140,7 +140,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
               children: <Widget>[
                 CustomPaint(
                   painter: ShapesPainterO(),
-                  child: Container(
+                  child: const SizedBox(
                     height: 150,
                     width: 600,
                   ),
@@ -154,7 +154,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
   }
 }
 
-const double _kCurveHeight = 25;
+const double _kCurveHeight = 45;
 
 class ShapesPainter extends CustomPainter {
   @override
