@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:family_tree/presentation/base/state/navigate_state.dart';
 import 'package:family_tree/presentation/route/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -19,9 +20,14 @@ class SplashBloc extends BaseBloc<SplashEvent, SplashState> {
 
     on<SplashScreenInit>((event, emit) async  {
       log("Time Start Navigation");
-       await Future.delayed(const Duration(seconds: 5));
+      emit(const ProgressbarState(isInProgress: true));
+       await Future.delayed(const Duration(seconds: 6),(){
+         emit(const ProgressbarState(isInProgress: false));
+       });
       log("Time Stop Navigation");
       emit(NavigateToHomeState());
     });
   }
+
+
 }

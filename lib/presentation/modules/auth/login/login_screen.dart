@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../base/screen/stateful_screen.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_textfield.dart';
@@ -110,7 +111,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                     ),
                   ),
                   const SizedBox(height: 80),
-                  const Center(
+                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -119,6 +120,9 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                           style: TextStyle(fontFamily: 'Poppins'),
                         ),
                         InkWell(
+                          onTap: (){
+                            context.read<LogInBloc>().add(NavigateToSignupEvent());
+                          },
                           child: Text(
                             '  Signup',
                             style: TextStyle(

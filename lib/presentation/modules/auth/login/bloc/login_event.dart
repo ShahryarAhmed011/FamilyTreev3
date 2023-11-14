@@ -8,3 +8,7 @@ abstract class LogInEvent {
 class LogInScreenInit extends LogInEvent {
 }
 
+
+class NavigateToSignupEvent extends LogInEvent {
+  const NavigateToSignupEvent();
+}
