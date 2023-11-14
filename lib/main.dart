@@ -9,7 +9,7 @@ import 'infrastructure/di/app_dependency_component.dart';
 import 'infrastructure/localization/locales.dart';
 import 'infrastructure/routing/app_router.dart';
 import 'presentation/modules/global/global_bloc.dart';
-
+// flutter pub run build_runner watch --delete-conflicting-outputs
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();

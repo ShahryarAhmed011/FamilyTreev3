@@ -29,6 +29,9 @@ class AppRouter {
           GoRoute(
               path: Routes.home,
               builder: (context, state) => routeFactory.create(context, state)),
+          GoRoute(
+              path: Routes.login,
+              builder: (context, state) => routeFactory.create(context, state)),
         ],
       );
       _goRouter = goRouter;
@@ -38,5 +41,4 @@ class AppRouter {
 
     return goRouter;
   }
-
 }
