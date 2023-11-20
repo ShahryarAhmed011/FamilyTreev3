@@ -102,7 +102,7 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                   ),
                   const CountryCodeTextField(),
                   const SizedBox(
-                    height: 12,
+                    height: 20,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -119,23 +119,20 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(10),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment
-                            .center, // Align content in the center
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
+                          const Text(
+                            'Gender',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment
-                                .center, // Align content in the center
                             children: [
-                              const Text(
-                                'Gender',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
                               Radio(
                                 focusColor: Colors.green,
                                 activeColor: Colors
@@ -148,7 +145,7 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                                   });
                                 },
                               ),
-                              const Text('Male'),
+                              Text('Male'),
                               const SizedBox(width: 20),
                               Radio(
                                 activeColor: Colors
@@ -168,7 +165,7 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                       ),
                     ),
                   ),
-                  const SizedBox(height: 35),
+                  const SizedBox(height: 45),
                   Center(
                     child: CustomButton(
                       onPressed: () {
