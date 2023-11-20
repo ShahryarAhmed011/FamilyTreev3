@@ -4,7 +4,6 @@ import '../../../base/screen/stateful_screen.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_textfield.dart';
 import 'bloc/login_bloc.dart';
-
 class LogInScreen extends StatefulScreen<LogInBloc> {
   const LogInScreen({super.key});
 
@@ -100,14 +99,10 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                   ),
                   const SizedBox(height: 35),
                   Center(
-                    child: SizedBox(
-                      width: 450,
-                      height: 50,
-                      child: CustomButton(
-                        onPressed: () {
-                          // Your code here
-                        },
-                      ),
+                    child: CustomButton(
+                      onPressed: () {
+                        // Your code here
+                      }, text: 'Login',
                     ),
                   ),
                   const SizedBox(height: 80),
@@ -115,15 +110,15 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Don’t have an account?',
                           style: TextStyle(fontFamily: 'Poppins'),
                         ),
                         InkWell(
                           onTap: (){
-                            context.read<LogInBloc>().add(NavigateToSignupEvent());
+                            context.read<LogInBloc>().add(const NavigateToSignupEvent());
                           },
-                          child: Text(
+                          child: const Text(
                             '  Signup',
                             style: TextStyle(
                               color: Color(0xFF20396F),

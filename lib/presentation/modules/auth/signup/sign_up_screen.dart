@@ -1,7 +1,8 @@
 import 'package:family_tree/presentation/modules/auth/signup/bloc/sign_up_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../base/screen/stateful_screen.dart';
-import '../../../widgets/country_number_textfield.dart';
+import 'widgets/country_number_textfield.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_textfield.dart';
 
@@ -13,6 +14,8 @@ class SignUpScreen extends StatefulScreen<SignUpBloc> {
     return _SignUpScreenState();
   }
 }
+
+String gender = 'male';
 
 class _SignUpScreenState extends ScreenState<SignUpBloc>
     with TickerProviderStateMixin {
@@ -38,7 +41,10 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                 ),
                 Center(
                   child: Container(
-                    padding: const EdgeInsets.only(top: 220),
+                    margin: const EdgeInsets.only(top: 230),
+                    padding: const EdgeInsets.all(40),
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.white),
                     child: Image.network(
                       'assets/images/png/profile-outline.png',
                       fit: BoxFit.cover,
@@ -95,53 +101,122 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                     height: 20,
                   ),
                   const CountryCodeTextField(),
-                  const SizedBox(height: 35),
-                  Center(
-                    child: SizedBox(
-                      width: 335,
-                      height: 50,
-                      child: CustomButton(
-                        onPressed: () {
-                          // Your code here
-                        },
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black54),
+                      color: Colors.white, // Changed color to green
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black45,
+                          offset: Offset(1, 1),
+                          blurRadius: 5,
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment
+                            .center, // Align content in the center
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment
+                                .center, // Align content in the center
+                            children: [
+                              const Text(
+                                'Gender',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Radio(
+                                focusColor: Colors.green,
+                                activeColor: Colors
+                                    .green, // Set the active color to black
+                                value: 'male',
+                                groupValue: gender,
+                                onChanged: (String? value) {
+                                  setState(() {
+                                    gender = value!;
+                                  });
+                                },
+                              ),
+                              const Text('Male'),
+                              const SizedBox(width: 20),
+                              Radio(
+                                activeColor: Colors
+                                    .green, // Set the active color to black
+                                value: 'female',
+                                groupValue: gender,
+                                onChanged: (String? value) {
+                                  setState(() {
+                                    gender = value!;
+                                  });
+                                },
+                              ),
+                              const Text('Female'),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  const SizedBox(height: 80),
+                  const SizedBox(height: 35),
+                  Center(
+                    child: CustomButton(
+                      onPressed: () {
+                        // Your code here
+                      },
+                      text: 'Signup',
+                    ),
+                  ),
                 ],
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Already have an account?',
-                        style: TextStyle(fontFamily: 'Poppins'),
-                      ),
-                      InkWell(
-                        child: Text(
-                          '  Login',
+            Stack(children: [
+              CustomPaint(
+                painter: ShapesPainterO(),
+                child: SizedBox(
+                  height: 140,
+                  width: 600,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 70.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Already have an account?',
                           style: TextStyle(
-                            color: Colors.white,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            context
+                                .read<SignUpBloc>()
+                                .add(const NavigateToLoginEvent());
+                          },
+                          child: const Text(
+                            '  Login',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-                CustomPaint(
-                  painter: ShapesPainterO(),
-                  child: const SizedBox(
-                    height: 150,
-                    width: 600,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ]),
           ],
         ),
       ),

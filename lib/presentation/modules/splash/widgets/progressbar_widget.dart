@@ -3,7 +3,9 @@
 import 'package:family_tree/presentation/base/widget/widget_component.dart';
 import 'package:family_tree/presentation/modules/splash/bloc/splash_bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ProgressbarWidget extends WidgetComponent<SplashBloc,SplashState,ProgressbarState>{
 
@@ -15,31 +17,31 @@ class ProgressbarWidget extends WidgetComponent<SplashBloc,SplashState,Progressb
       child: SizedBox(
           width: (state.isInProgress)?20:100,
           height: 35,
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color(0xff12594d),
-              borderRadius: BorderRadius.circular(18),
-            ),
-            padding: EdgeInsets.zero,
+          child: LinearPercentIndicator(
+            curve: Curves.bounceIn,
+            barRadius: const Radius.circular(25),
+            animation: true,
+            animationDuration: 10000,
+            lineHeight: 40,
+            percent: 0.8,
+            animateFromLastPercent: true,
+            progressColor: const Color(0xFF6FC276),
+            backgroundColor: Colors.green.shade200,
           )),
     );
   }
 
   @override
   Widget buildEmpty(BuildContext context) {
-    return Positioned(
-      left: 95,
-      top: 90,
-      child: SizedBox(
-          width: 99,
-          height: 35,
-          child: Container(
-            decoration: BoxDecoration(
-              color: const Color(0xff12594d),
-              borderRadius: BorderRadius.circular(18),
-            ),
-            padding: EdgeInsets.zero,
-          )),
+    return
+    LinearPercentIndicator(
+    barRadius: const Radius.circular(25),
+    animation: true,
+    animationDuration: 10000,
+    lineHeight: 40,
+    percent: 0.8,
+    progressColor: const Color(0xFF6FC276),
+    backgroundColor: Colors.green.shade200,
     );
   }
 

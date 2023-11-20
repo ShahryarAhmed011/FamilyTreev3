@@ -7,7 +7,6 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../base/bloc/base_bloc.dart';
-import '../../../base/state/replace_state.dart';
 
 part 'splash_event.dart';
 part 'splash_state.dart';
@@ -21,7 +20,7 @@ class SplashBloc extends BaseBloc<SplashEvent, SplashState> {
     on<SplashScreenInit>((event, emit) async  {
       log("Time Start Navigation");
       emit(const ProgressbarState(isInProgress: true));
-       await Future.delayed(const Duration(seconds: 6),(){
+       await Future.delayed(const Duration(seconds: 15),(){
          emit(const ProgressbarState(isInProgress: false));
        });
       log("Time Stop Navigation");

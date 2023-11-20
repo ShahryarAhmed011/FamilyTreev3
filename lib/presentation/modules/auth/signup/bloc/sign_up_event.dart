@@ -6,3 +6,7 @@ abstract class SignUpEvent {
 }
 
 class SignUpScreenInit extends SignUpEvent {}
+
+class NavigateToLoginEvent extends SignUpEvent {
+  const NavigateToLoginEvent();
+}
