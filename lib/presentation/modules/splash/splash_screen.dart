@@ -137,11 +137,10 @@ class _SplashScreenState extends ScreenState<SplashBloc>
                               width: 283,
                               height: 35,
                               child: LinearPercentIndicator(
-
                                 curve: Curves.linear,
                                 barRadius: const Radius.circular(25),
                                 animation: true,
-                                animationDuration: 4000,
+                                animationDuration: 5000,
                                 lineHeight: 40,
                                 percent: 0.4,
                                 progressColor: const Color(0xFF12594D),

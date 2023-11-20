@@ -100,8 +100,8 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                   const SizedBox(height: 35),
                   Center(
                     child: CustomButton(
-                      onPressed: () {
-                        // Your code here
+                      onPressed: (){
+                        context.read<LogInBloc>().add(const NavigateToHomeStateEvent());
                       }, text: 'Login',
                     ),
                   ),

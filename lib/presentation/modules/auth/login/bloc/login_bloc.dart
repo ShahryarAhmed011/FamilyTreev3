@@ -17,6 +17,8 @@ class LogInBloc extends BaseBloc<LogInEvent, LogInState> {
     on<NavigateToSignupEvent>((event, emit) async {
       emit(NavigateToSignupState());
     });
-
+    on<NavigateToHomeStateEvent>((event, emit) async {
+      emit(NavigateToHomeState());
+    });
   }
 }

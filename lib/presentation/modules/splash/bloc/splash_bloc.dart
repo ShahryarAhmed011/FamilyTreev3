@@ -20,7 +20,7 @@ class SplashBloc extends BaseBloc<SplashEvent, SplashState> {
     on<SplashScreenInit>((event, emit) async  {
       log("Time Start Navigation");
       emit(const ProgressbarState(isInProgress: true));
-       await Future.delayed(const Duration(seconds: 15),(){
+       await Future.delayed(const Duration(seconds: 5),(){
          emit(const ProgressbarState(isInProgress: false));
        });
       log("Time Stop Navigation");
