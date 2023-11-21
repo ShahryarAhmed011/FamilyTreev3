@@ -121,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                                         image: const DecorationImage(
                                           fit: BoxFit.cover,
                                           image: AssetImage(
-                                              'assets/images/png/profilemen.png'),
+                                              'assets/images/png/profilemen2.png'),
                                         ),
                                       ),
                                     ),
@@ -150,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                                         image: const DecorationImage(
                                           fit: BoxFit.cover,
                                           image: AssetImage(
-                                              'assets/images/png/profilemen.png'),
+                                              'assets/images/png/profilewman.png'),
                                         ),
                                       ),
                                     ),
@@ -192,11 +192,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 60,
                 ),
                 Container(
-                  width: 260,
-                  height: 195,
+                  width: 160,
+                  height: 199,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: const Color(0xffffffff),
@@ -226,7 +226,7 @@ class HomeScreen extends StatelessWidget {
                                 image: const DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
-                                      'assets/images/png/profilemen.png'),
+                                      'assets/images/png/profilemen1.png'),
                                 ),
                               ),
                             ),
