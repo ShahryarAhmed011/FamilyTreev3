@@ -1,4 +1,5 @@
 import 'package:family_tree/presentation/modules/splash/bloc/splash_bloc.dart';
+import 'package:family_tree/presentation/theme/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -12,10 +13,12 @@ class SplashScreen extends StatefulScreen<SplashBloc> {
   State<StatefulWidget> createState() {
     return _SplashScreenState();
   }
+
 }
 
 class _SplashScreenState extends ScreenState<SplashBloc>
     with TickerProviderStateMixin {
+
   @override
   void initState() {
     context.read<SplashBloc>().add(SplashScreenInit());
@@ -160,6 +163,7 @@ class _SplashScreenState extends ScreenState<SplashBloc>
       ),
     );
   }
+
 }
 
 const double _kCurveHeight = 55;

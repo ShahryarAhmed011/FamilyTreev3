@@ -39,13 +39,14 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                   child: Container(
                     padding: const EdgeInsets.only(top: 220),
                     child: Image.network(
-                      'assets/images/png/treeWhite.png',
+                      'https://picsum.photos/200/300',
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
               ],
             ),
+
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Column(
@@ -131,6 +132,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                 ],
               ),
             ),
+
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

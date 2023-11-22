@@ -9,6 +9,8 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class ProgressbarWidget extends WidgetComponent<SplashBloc,SplashState,ProgressbarState>{
 
+  const ProgressbarWidget({super.key});
+
   @override
   Widget buildComponent(BuildContext context, ProgressbarState state) {
     return Positioned(
