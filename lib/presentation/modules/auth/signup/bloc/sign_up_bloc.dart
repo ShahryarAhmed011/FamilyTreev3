@@ -21,7 +21,7 @@ class SignUpBloc extends BaseBloc<SignUpEvent, SignUpState> {
     on<SignUpEvent>((event, emit) async {});
     on<SignUpScreenInit>((event, emit) async {});
     on<NavigateToLoginEvent>((event, emit) async {
-//      emit(NavigateToLoginState());
+     emit(NavigateToLoginState());
 
     log("Storing user name...");
     _storeUserNamePreferencesUseCase.storeUsername("Noman");

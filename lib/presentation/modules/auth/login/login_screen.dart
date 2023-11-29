@@ -30,23 +30,23 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                     CustomPaint(
                       painter: ShapesPainterUpper(),
                       child: Container(
-                        height: 450,
+                        height: 200,
                       ),
                     ),
                   ],
                 ),
                 Center(
                   child: Container(
-                    padding: const EdgeInsets.only(top: 220),
-                    child: Image.network(
-                      'https://picsum.photos/200/300',
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Image.asset(
+                      height: 165,
+                      'assets/images/png/treeWhite.png',
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
               ],
             ),
-
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Column(
@@ -60,7 +60,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
 
                   CustomTextField(
@@ -76,9 +76,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                     controller: TextEditingController(),
                     suffixIcon: Icons.lock_outline,
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -98,7 +96,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                       ),
                     ],
                   ),
-                  const SizedBox(height: 35),
+                  const SizedBox(height: 29),
                   Center(
                     child: CustomButton(
                       onPressed: (){
@@ -106,7 +104,7 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                       }, text: 'Login',
                     ),
                   ),
-                  const SizedBox(height: 80),
+                  const SizedBox(height: 55),
                    Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +130,6 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                 ],
               ),
             ),
-
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Image.network(
+                          Image.asset(
                             'assets/images/png/profilemen.png',
                           ),
                           const Column(
@@ -66,9 +66,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 15),
           const Padding(
-            padding: EdgeInsets.only(left: 20.0),
+            padding: EdgeInsets.only(left: 20.0, top: 15),
             child: Text('Home',
                 style: TextStyle(
                     color: Colors.black,
@@ -100,73 +99,69 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
                       SizedBox(
                         width: 235,
-                        height: 155,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        height: 140,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.only(bottom: 5),
-                                      width: 92,
-                                      height: 92,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(46),
-                                        image: const DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              'assets/images/png/profilemen2.png'),
-                                        ),
-                                      ),
+                                Container(
+                                  margin: const EdgeInsets.only(bottom: 5),
+                                  width: 92,
+                                  height: 92,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(
+                                          'assets/images/png/profilemen2.png'),
                                     ),
-                                    const Text(
-                                      'Asif Khan',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xff000000),
-                                      ),
-                                    ),
-                                    const DateTextWidget(
-                                      date: '06-NOV-2022',
-                                    )
-                                  ],
+                                  ),
                                 ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.only(bottom: 5),
-                                      width: 92,
-                                      height: 92,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(46),
-                                        image: const DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: AssetImage(
-                                              'assets/images/png/profilewman.png'),
-                                        ),
-                                      ),
-                                    ),
-                                    const Text(
-                                      'Alia Haider',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xff000000),
-                                      ),
-                                    ),
-                                    const DateTextWidget(
-                                      date: '06-NOV-2022',
-                                    )
-                                  ],
+                                const Text(
+                                  'Asif Khan',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xff000000),
+                                  ),
                                 ),
+                                const DateTextWidget(
+                                  date: '06-NOV-2022',
+                                )
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.only(bottom: 5),
+                                  width: 92,
+                                  height: 92,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(
+                                          'assets/images/png/profilewman.png'),
+                                    ),
+                                  ),
+                                ),
+                                const Text(
+                                  'Alia Haider',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xff000000),
+                                  ),
+                                ),
+                                const DateTextWidget(
+                                  date: '06-NOV-2022',
+                                )
                               ],
                             ),
                           ],
@@ -176,7 +171,7 @@ class HomeScreen extends StatelessWidget {
                         width: 231,
                         height: 22,
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ActionButtonWidget(text: 'Add'),
                             ActionButtonWidget(text: 'Delete'),
@@ -210,20 +205,20 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
                       SizedBox(
                         width: 235,
-                        height: 155,
+                        height: 140,
                         child: Column(
                           children: [
                             Container(
-                              margin: const EdgeInsets.only(bottom: 5),
                               width: 92,
                               height: 92,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(46),
-                                image: const DecorationImage(
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: AssetImage(
                                       'assets/images/png/profilemen1.png'),
@@ -244,8 +239,8 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                       const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           ActionButtonWidget(text: 'Delete'),
                           ActionButtonWidget(
@@ -255,11 +250,9 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-
                     ],
                   ),
                 ),
-                SizedBox(height: 80,)
               ],
             ),
           ),
@@ -284,7 +277,6 @@ class ActionButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 14),
       width: 63,
       height: 20,
       decoration: BoxDecoration(

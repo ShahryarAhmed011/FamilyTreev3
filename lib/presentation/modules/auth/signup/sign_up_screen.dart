@@ -34,18 +34,19 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                     CustomPaint(
                       painter: ShapesPainter(),
                       child: Container(
-                        height: 450,
+                        height: 200,
                       ),
                     ),
                   ],
                 ),
                 Center(
                   child: Container(
-                    margin: const EdgeInsets.only(top: 230),
+                    height: 150,
+                    margin: const EdgeInsets.only(top: 30),
                     padding: const EdgeInsets.all(40),
                     decoration: const BoxDecoration(
                         shape: BoxShape.circle, color: Colors.white),
-                    child: Image.network(
+                    child: Image.asset(
                       'assets/images/png/profile-outline.png',
                       fit: BoxFit.cover,
                     ),
