@@ -1,3 +1,4 @@
+import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 
 class CountryCodeTextField extends StatefulWidget {
@@ -30,10 +31,19 @@ class _CountryCodeTextFieldState extends State<CountryCodeTextField> {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left:15),
+        padding: const EdgeInsets.only(left: 15),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            Center(
+              child: CountryFlag.fromCountryCode(
+                'pk',
+                height: 20,
+                width: 24,
+                borderRadius: 8,
+              ),
+            ),
+            const SizedBox(width: 10),
             Text(selectedFlagCode),
             const SizedBox(width: 10),
             DropdownButton<String>(
@@ -59,7 +69,7 @@ class _CountryCodeTextFieldState extends State<CountryCodeTextField> {
                   fontSize: 14,
                 ),
                 decoration: const InputDecoration(
-                  contentPadding:  EdgeInsets.all(15),
+                  contentPadding: EdgeInsets.all(15),
                   border: InputBorder.none,
                   hintText: 'Phone Number',
                 ),

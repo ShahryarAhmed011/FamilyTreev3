@@ -8,7 +8,12 @@ class SplashInitial extends SplashState {
 }
 
 class NavigateToHomeState extends NavigateState implements SplashState {
-  NavigateToHomeState() : super(path: Routes.login);
+  NavigateToHomeState() : super(path: Routes.home);
+  @override
+  List<Object?> get props => [DateTime.now()];
+}
+class NavigateToLoginState extends NavigateState implements SplashState {
+  NavigateToLoginState() : super(path: Routes.login);
   @override
   List<Object?> get props => [DateTime.now()];
 }

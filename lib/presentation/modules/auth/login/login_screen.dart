@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../base/screen/stateful_screen.dart';
-import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_textfield.dart';
+import '../../splash/bloc/splash_bloc.dart';
 import 'bloc/login_bloc.dart';
+
 class LogInScreen extends StatefulScreen<LogInBloc> {
   const LogInScreen({super.key});
 
@@ -62,7 +64,6 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                   const SizedBox(
                     height: 20,
                   ),
-
                   CustomTextField(
                     hintText: 'Enter your Email',
                     controller: TextEditingController(),
@@ -76,7 +77,6 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                     controller: TextEditingController(),
                     suffixIcon: Icons.lock_outline,
                   ),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -96,16 +96,39 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                       ),
                     ],
                   ),
-                  const SizedBox(height: 29),
+                  const SizedBox(height: 30),
                   Center(
-                    child: CustomButton(
-                      onPressed: (){
-                        context.read<LogInBloc>().add(const NavigateToHomeStateEvent());
-                      }, text: 'Login',
+                    child: SizedBox(
+                      width: 445,
+                      height: 60,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xff6fc276),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: () async {
+                          var sharepref = await SharedPreferences.getInstance();
+                          sharepref.setBool(SplashBloc.KEYLOGIN, true);
+                          context
+                              .read<LogInBloc>()
+                              .add(const NavigateToHomeStateEvent());
+                        },
+                        child: const Text(
+                          'LogIn',
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w900,
+                            color: Color(0xffffffff),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 55),
-                   Center(
+                  const SizedBox(height: 90),
+                  Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -114,8 +137,10 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                           style: TextStyle(fontFamily: 'Poppins'),
                         ),
                         InkWell(
-                          onTap: (){
-                            context.read<LogInBloc>().add(const NavigateToSignupEvent());
+                          onTap: () {
+                            context
+                                .read<LogInBloc>()
+                                .add(const NavigateToSignupEvent());
                           },
                           child: const Text(
                             '  Signup',
@@ -136,8 +161,8 @@ class _LogInScreenState extends ScreenState<LogInBloc>
                 CustomPaint(
                   painter: ShapesPainterBottom(),
                   child: const SizedBox(
-                    height: 150,
-                    width: 600,
+                    height: 120,
+                    width: double.infinity,
                   ),
                 ),
               ],

@@ -106,6 +106,7 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                     height: 20,
                   ),
                   Container(
+                    height: 50,
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.black54),
                       color: Colors.white, // Changed color to green
@@ -166,7 +167,7 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                       ),
                     ),
                   ),
-                  const SizedBox(height: 45),
+                  const SizedBox(height: 65),
                   Center(
                     child: CustomButton(
                       onPressed: () {
@@ -182,7 +183,7 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
               CustomPaint(
                 painter: ShapesPainterO(),
                 child: SizedBox(
-                  height: 140,
+                  height: 120,
                   width: 600,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 70.0),
@@ -192,6 +193,7 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                         const Text(
                           'Already have an account?',
                           style: TextStyle(
+                              fontSize: 12,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
@@ -205,6 +207,7 @@ class _SignUpScreenState extends ScreenState<SignUpBloc>
                           child: const Text(
                             '  Login',
                             style: TextStyle(
+                                fontSize: 12,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),

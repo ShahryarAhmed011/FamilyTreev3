@@ -18,5 +18,11 @@ class NavigateToHomeState extends NavigateState implements LogInState {
   List<Object?> get props => [DateTime.now()];
 }
 
+class NavigateToLoginState extends NavigateState implements LogInState {
+  NavigateToLoginState() : super(path: Routes.login);
+  @override
+  List<Object?> get props => [DateTime.now()];
+}
+
 
 
